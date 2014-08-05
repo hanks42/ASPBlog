@@ -1,0 +1,1 @@
+A blog site built using ASP.NET MVC4 and Entity framework
