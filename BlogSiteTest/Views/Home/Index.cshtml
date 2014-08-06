@@ -3,15 +3,6 @@
     ViewBag.Title = "Welcome to the blog!";
 }
 
-@section featured {
-    <div class="blog-header">
-        <h1 class="blog-title">@ViewBag.Title</h1>
-        <p class="lead blog-description">
-            Welcome to the ASP.NET MVC4 with Entity Framework 5 blog. This blog demonstrates features such as user accounts, CRUD actions for blog posts with user permissions and an updating front page view with AJAX.
-        </p>
-    </div>
-}
-
 <p>
     @Html.ActionLink("Create A Post", "Create", "Blog", null, new { @class = "btn btn-lg btn-primary" })
 </p>
