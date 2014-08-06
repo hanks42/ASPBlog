@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BlogSiteTest.Models;
+using System.Web;
 
 namespace BlogSiteTest.Controllers
 {
@@ -51,7 +52,12 @@ namespace BlogSiteTest.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Set Creation date
                 blogpost.DateCreated = DateTime.Now;
+
+                // Set current user as the author
+                blogpost.Author = User.Identity.Name;
+
                 db.BlogPosts.Add(blogpost);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,7 +86,14 @@ namespace BlogSiteTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(BlogPost blogpost)
         {
-            if (ModelState.IsValid)
+
+            // validate user
+            if (User.Identity.Name != blogpost.Author)
+            {
+                ModelState.AddModelError(string.Empty,
+                    "Unable to edit blog post as you are not the author!");
+            }
+            else if (ModelState.IsValid)
             {
                 db.Entry(blogpost).State = EntityState.Modified;
                 db.SaveChanges();
@@ -109,10 +122,21 @@ namespace BlogSiteTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             BlogPost blogpost = db.BlogPosts.Find(id);
-            db.BlogPosts.Remove(blogpost);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            // validate user
+            if (User.Identity.Name != blogpost.Author)
+            {
+                ModelState.AddModelError(string.Empty,
+                    "Unable to delete blog post as you are not the author!");
+                return View(blogpost);
+            }
+            else
+            {
+                db.BlogPosts.Remove(blogpost);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -12,6 +12,7 @@ namespace BlogSiteTest.Models
         public string Title { get; set; }
         public string Post { get; set; }
         public DateTime DateCreated { get; set; }
+        public string Author { get; set; }
     }
 
     public class BlogDBContext : DbContext

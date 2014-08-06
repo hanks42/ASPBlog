@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BlogSiteTest.Models;
 
 namespace BlogSiteTest.Controllers
 {
     public class HomeController : Controller
     {
+        private BlogDBContext db = new BlogDBContext();
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            
+            return View(db.BlogPosts.ToList());
         }
 
         public ActionResult About()
