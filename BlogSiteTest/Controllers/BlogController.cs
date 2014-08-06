@@ -146,7 +146,7 @@ namespace BlogSiteTest.Controllers
 
         public PartialViewResult GetBlogposts()
         {
-            return PartialView("_BlogPosts", db.BlogPosts.ToList());
+            return PartialView("_BlogPosts", db.BlogPosts.ToList().OrderByDescending(D => D.DateCreated));
         }
     }
 }
