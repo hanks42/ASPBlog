@@ -11,6 +11,7 @@ namespace BlogSiteTest.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string Post { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 
     public class BlogDBContext : DbContext

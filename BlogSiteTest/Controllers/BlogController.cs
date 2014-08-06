@@ -51,6 +51,7 @@ namespace BlogSiteTest.Controllers
         {
             if (ModelState.IsValid)
             {
+                blogpost.DateCreated = DateTime.Now;
                 db.BlogPosts.Add(blogpost);
                 db.SaveChanges();
                 return RedirectToAction("Index");

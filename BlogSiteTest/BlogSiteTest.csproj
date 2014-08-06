@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201408060318254_Initial.Designer.cs">
       <DependentUpon>201408060318254_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408060333171_BlogPostDateCreated.cs" />
+    <Compile Include="Migrations\201408060333171_BlogPostDateCreated.Designer.cs">
+      <DependentUpon>201408060333171_BlogPostDateCreated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BlogPost.cs" />
@@ -323,6 +327,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408060318254_Initial.resx">
       <DependentUpon>201408060318254_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408060333171_BlogPostDateCreated.resx">
+      <DependentUpon>201408060333171_BlogPostDateCreated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
