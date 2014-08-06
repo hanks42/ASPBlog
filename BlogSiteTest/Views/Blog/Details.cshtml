@@ -1,0 +1,29 @@
+﻿@model BlogSiteTest.Models.BlogPost
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BlogPost</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Post)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Post)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
