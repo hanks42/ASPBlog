@@ -18,7 +18,8 @@ namespace BlogSiteTest.Controllers
 
         public ActionResult Index()
         {
-            return View(db.BlogPosts.ToList());
+            // Disable this view as it repeats the home view
+            return RedirectToAction("Index", "Home");
         }
 
         //
