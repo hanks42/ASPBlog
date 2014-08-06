@@ -4,19 +4,18 @@
 }
 
 @section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-            </hgroup>
-            <p>
-                Welcome to the ASP.NET MVC4 with Entity Framework 5 blog. This blog demonstrates features such as user accounts, CRUD actions for blog posts with user permissions and an updating front page view with AJAX.
-            </p>
-        </div>
-    </section>
+    <div class="blog-header">
+        <h1 class="blog-title">@ViewBag.Title</h1>
+        <p class="lead blog-description">
+            Welcome to the ASP.NET MVC4 with Entity Framework 5 blog. This blog demonstrates features such as user accounts, CRUD actions for blog posts with user permissions and an updating front page view with AJAX.
+        </p>
+    </div>
 }
 
-<h2>Blog Posts:</h2>
+<p>
+    @Html.ActionLink("Create A Post", "Create", "Blog", null, new { @class = "btn btn-lg btn-primary" })
+</p>
+<hr />
 
 @section scripts {
     <script type="text/javascript" src="/Scripts/blog/blogscript.js"></script>

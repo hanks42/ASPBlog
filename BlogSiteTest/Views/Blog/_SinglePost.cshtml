@@ -1,0 +1,7 @@
+﻿@model BlogSiteTest.Models.BlogPost
+
+<div class="blog-post">
+    <h2 class="blog-post-title">@Html.DisplayFor(model => model.Title)</h2>
+    <p class="blog-post-meta">Posted on @Html.DisplayFor(model => model.DateCreated) by @Html.DisplayFor(model => model.Author)</p>
+    <p>@Html.DisplayFor(model => model.Post)</p>
+</div>
