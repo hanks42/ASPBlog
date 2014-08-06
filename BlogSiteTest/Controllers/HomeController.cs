@@ -9,12 +9,10 @@ namespace BlogSiteTest.Controllers
 {
     public class HomeController : Controller
     {
-        private BlogDBContext db = new BlogDBContext();
-
         public ActionResult Index()
         {
             
-            return View(db.BlogPosts.ToList());
+            return View();
         }
 
         public ActionResult About()
@@ -30,5 +28,6 @@ namespace BlogSiteTest.Controllers
 
             return View();
         }
+
     }
 }

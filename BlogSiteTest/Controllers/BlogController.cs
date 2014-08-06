@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BlogSiteTest.Models;
-using System.Web;
 
 namespace BlogSiteTest.Controllers
 {
@@ -143,6 +142,11 @@ namespace BlogSiteTest.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
+        }
+
+        public PartialViewResult GetBlogposts()
+        {
+            return PartialView("_BlogPosts", db.BlogPosts.ToList());
         }
     }
 }
