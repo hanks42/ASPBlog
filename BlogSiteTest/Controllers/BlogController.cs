@@ -151,9 +151,19 @@ namespace BlogSiteTest.Controllers
             base.Dispose(disposing);
         }
 
-        public PartialViewResult GetBlogposts()
+        public PartialViewResult GetBlogposts(string author)
         {
-            return PartialView("_BlogPosts", db.BlogPosts.ToList().OrderByDescending(D => D.DateCreated));
+            var posts = from p in db.BlogPosts select p;
+
+            if (!String.IsNullOrEmpty(author))
+            {
+                posts = posts.Where(p => p.Author.Equals(author));
+            }
+
+            // Sort posts by newest first
+            posts = posts.OrderByDescending(D => D.DateCreated);
+
+            return PartialView("_BlogPosts", posts.ToList());
         }
     }
 }
