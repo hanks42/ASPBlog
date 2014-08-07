@@ -90,22 +90,27 @@ namespace BlogSiteTest.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BlogPost blogpost)
+        public ActionResult Edit(BlogPost editedpost)
         {
 
+            // Retrieve actual post from DB that holds more data
+            BlogPost post = db.BlogPosts.Find(editedpost.ID);
             // validate user
-            if (User.Identity.Name != blogpost.Author)
+            if (User.Identity.Name != post.Author)
             {
                 ModelState.AddModelError(string.Empty,
-                    "Unable to edit blog post as you are not the author!");
+                    "unable to edit blog post as you are not the author!");
             }
             else if (ModelState.IsValid)
             {
-                db.Entry(blogpost).State = EntityState.Modified;
+                // Fill edited data into the post from the DB
+                post.Title = editedpost.Title;
+                post.Post = editedpost.Post;
+                db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogpost);
+            return View(post);
         }
 
         //
