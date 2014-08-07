@@ -4,8 +4,12 @@
     ViewBag.Title = "Details";
 }
 
+<div id="fb-root"></div>
+<script type="text/javascript" src="/Scripts/blog/fbsdk.js"></script>
+
 @Html.Partial("~/Views/Blog/_SinglePost.cshtml", Model)
 
+<div class="fb-like" data-href="@Request.Url.GetLeftPart(UriPartial.Authority)@Url.Action("Details", new { id = Model.ID })" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
     @Html.ActionLink("Delete", "Delete", new { id=Model.ID }) |
