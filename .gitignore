@@ -66,6 +66,5 @@ packages/
 
 #Test files
 *.testsettings
-BlogSiteTest/App_Data/
 
 !Nuget.exe
