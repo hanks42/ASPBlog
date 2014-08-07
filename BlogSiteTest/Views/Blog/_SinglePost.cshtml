@@ -1,10 +1,13 @@
 ﻿@model BlogSiteTest.Models.BlogPost
 
 <div class="blog-post">
-    <h2 class="blog-post-title">@Html.DisplayFor(model => model.Title)</h2>
+    <h2 class="blog-post-title">
+        @Html.ActionLink(Model.Title, "Details", new { id = Model.ID })
+    </h2>
     
     @if ( Model.DateCreated.AddMinutes(1).CompareTo(DateTime.Now) > 0 ) { <h4><span class="label label-success">New!</span></h4> }
 
     <p class="blog-post-meta">Posted on @Html.DisplayFor(model => model.DateCreated) by @Html.DisplayFor(model => model.Author)</p>
     <p>@Html.DisplayFor(model => model.Post)</p>
+
 </div>

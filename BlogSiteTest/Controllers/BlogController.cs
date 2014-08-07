@@ -50,7 +50,13 @@ namespace BlogSiteTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BlogPost blogpost)
         {
-            if (ModelState.IsValid)
+            // Don't let non logged in users make posts
+            if (!User.Identity.IsAuthenticated)
+            {
+                ModelState.AddModelError(string.Empty,
+                    "You must login to create a post!");
+            }
+            else if (ModelState.IsValid)
             {
                 // Set Creation date
                 blogpost.DateCreated = DateTime.Now;

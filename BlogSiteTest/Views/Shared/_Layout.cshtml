@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width" />
         @Scripts.Render("~/bundles/modernizr")
         @Styles.Render("~/Content/bootstrapcss")
+        @Styles.Render("~/Content/customcss")
 
     </head>
     <body>
@@ -31,6 +32,7 @@
                     <div class="sidebar-module sidebar-module-inset">
                         <h4>About</h4>
                         <p class="site-title">@Html.ActionLink("ASP.NET MVC4 Blog Site", "Index", "Home")</p>
+                        <p>An example blog site written in ASP.NET MVC4 with Entity Framework 5 using Bootstrap for frontend styling.</p>
                     </div>
                     <div class="sidebar-module">
                         <h4>Account</h4>
